@@ -40,7 +40,7 @@ const checkAge1 = function(age) {
 /*3**:
 Преобразовать 2* таким образом, чтобы значение '2' (строка в которой лежит ТОЛЬКО ЦИФРА) пропускалось, преобразовываясь в number*/
 const checkAge2 = function(age) {
-    if (isNaN(age) == true) {
+    if (isNaN(age) == true || typeof(age) == 'boolean' || age.length === 0 || !age.trim()) {
         console.log("Error! Please enter a number!");
     } else if (isFinite(age) == true) {
         age_1 = Number(age);
@@ -55,5 +55,8 @@ const checkAge2 = function(age) {
         } else {
          console.log("Technical work");
      }}}
-//checkAge2('2');
+// checkAge2('2');
+// checkAge2(true);
+// checkAge2('')
+
 
