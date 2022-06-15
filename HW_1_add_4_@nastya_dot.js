@@ -1,7 +1,7 @@
 /* 4***:
 Преобразовать задание 3* таким образом, чтобы возраст вводится используя функцию prompt в привязанной верстке */
 const checkAge2 = function(age) {
-    if (isNaN(age) == true) {
+    if (isNaN(age) == true || age === null || age.length === 0 || !age.trim()) {
         console.log("Error! Please enter a number!");
     } else if (isFinite(age) == true) {
         age_1 = Number(age);
