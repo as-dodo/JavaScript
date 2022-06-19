@@ -92,15 +92,15 @@ e.g. function isPalindrom(word)
 Проверки: 'abba', 'Abba' */
 
 function isPalindrom(word) {
-    let wordNorm = word.toLowerCase().replace(/[^a-zа-яё]/gi, '');
+    let wordNorm = word.toLowerCase().replace(/[^a-zа-яё0-9]/gi, '');
     let reversedWord = wordNorm.split("").reverse().join("");
     if (wordNorm == reversedWord) {
-        console.log(true);
+        console.log('Кажется, это палиндром');
     } else {
-        console.log(false);
+        console.log('Не палиндром!');
     }
 }
 isPalindrom('abba');
 isPalindrom('Abba');
-isPalindrom('Abbat');
+isPalindrom('Abba1');
 isPalindrom('Искать такси')
