@@ -97,11 +97,6 @@ const regDate = users.filter(function(key) {
     return (key['registrationDate'] == '09.10.2021' || key['registrationDate'] == '10.10.2021')
 })
 
-console.log(regDate)
+console.log(regDate);
 
-
-
-// const regDate = users
-//     .filter(user => user.registrationDate.indexOf(('09.10.2021' || '10.10.2021')) != -1)
-// console.log(regDate)
 
