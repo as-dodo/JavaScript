@@ -72,30 +72,33 @@ const enterprises = [
 */
 
 // // Решение
-// for (let enterprise of enterprises) {
-//     let enterpriseName = enterprise['name'];
-//     let departments = enterprise['departments'];
-//     let allEmployees = 0;
+const showAllInfo = () => {
+    for (let enterprise of enterprises) {
+        let enterpriseName = enterprise['name'];
+        let departments = enterprise['departments'];
+        let allEmployees = 0;
 
-//     departments.forEach(function(department) {
-//         allEmployees += department['employees_count'];
-//     })
-//     if (allEmployees != 0) {
-//         console.log(`${enterpriseName} (${allEmployees} сотрудников)`);
-//     } else if (allEmployees  == 0) {
-//         console.log(`${enterpriseName}(нет сотрудников)`);
-//     }
+        departments.forEach(function (department) {
+            allEmployees += department['employees_count'];
+        })
+        if (allEmployees != 0) {
+            console.log(`${enterpriseName} (${allEmployees} сотрудников)`);
+        } else if (allEmployees == 0) {
+            console.log(`${enterpriseName} (нет сотрудников)`);
+        }
 
-//     departments.forEach(function(department) {
-//         let departmentName = department['name'];
-//         let employeesCount = department['employees_count'];
-//         if (employeesCount != 0) {
-//             console.log(`- ${departmentName} (${employeesCount} сотрудников)`);
-//         } else if (employeesCount ==0 ) {
-//             console.log(`- ${departmentName}(нет сотрудников)`);
-//         }
-//     } )
-// } 
+        departments.forEach(function (department) {
+            let departmentName = department['name'];
+            let employeesCount = department['employees_count'];
+            if (employeesCount != 0) {
+                console.log(`- ${departmentName} (${employeesCount} сотрудников)`);
+            } else if (employeesCount == 0) {
+                console.log(`- ${departmentName}(нет сотрудников)`);
+            }
+        })
+    }
+}
+// showAllInfo()
 // // 2. Написать функцию, которая будет принимать 1 аргумент (id отдела или название отдела и возвращать название предприятия, к которому относится).
 // // Пример:
 // // getEnterpriseName(4) // Предприятие 1
@@ -255,7 +258,6 @@ const deleteDepartment = (idDepartment) => {
 }
 
 // deleteDepartment(1);
-
 
 /*9. Написать функцию для переноса сотрудников между отделами одного предприятия. В качестве аргумента принимает два значения: id отдела, из которого будут переноситься сотрудники и id отдела, в который будут переноситься сотрудники).
 Пример:
