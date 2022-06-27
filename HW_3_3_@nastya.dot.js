@@ -129,9 +129,9 @@ addEnterprise("Название нового предприятия")
 //Решение
 const AddEnterprise = (newName) => {
     let newEnterprise = {};
-    let id = {id: 11};
-    let name = {name: newName};
-    let departments = {departments:[]}
+    let id = { id: 11 };
+    let name = { name: newName };
+    let departments = { departments: [] }
     Object.assign(newEnterprise, id, name, departments)
 
     enterprises.push(newEnterprise);
@@ -215,7 +215,7 @@ deleteEnterprise(1)*/
 
 //Решение
 
-const deleteEnterprise = (idEnterprise)=> {
+const deleteEnterprise = (idEnterprise) => {
     const findEnterprise = enterprises.find(item => item.id == idEnterprise);
     if (findEnterprise) {
         enterprises.splice(enterprises.indexOf(findEnterprise), 1)
@@ -260,3 +260,26 @@ const deleteDepartment = (idDepartment) => {
 /*9. Написать функцию для переноса сотрудников между отделами одного предприятия. В качестве аргумента принимает два значения: id отдела, из которого будут переноситься сотрудники и id отдела, в который будут переноситься сотрудники).
 Пример:
 moveEmployees(2, 3) */
+
+const moveEmployees = (idDepartmentOut, idDepartmentIn) => {
+    let isDepartmentsExist = false;
+
+    enterprises.forEach((enterprise) => {
+        const findDepartmentOut = enterprise.departments.find(item => item.id == idDepartmentOut);
+        const findDepartmentIn = enterprise.departments.find(item => item.id == idDepartmentIn);
+
+        if (findDepartmentOut && findDepartmentIn) {
+            isDepartmentsExist = true;
+            const movedEmpl = findDepartmentOut.employees_count;
+            findDepartmentOut.employees_count = 0;
+            findDepartmentIn.employees_count += movedEmpl;
+            console.log(`Перенос сотрудников из отдела "${findDepartmentOut.name}" в отдел "${findDepartmentIn.name}" завершен!`);
+            console.log(findDepartmentOut, findDepartmentIn);
+        }
+    })
+    if (!isDepartmentsExist) {
+        console.log('Что-то пошло не так. Проверьте ID отделов');
+    }
+}
+
+// moveEmployees(2, 3);
